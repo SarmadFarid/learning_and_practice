@@ -1,0 +1,187 @@
+✅ 1. What is Flutter? :
+Flutter is an open-source UI toolkit created by Google that allows you to build fast, beautiful, cross-platform apps (Android, iOS, Web, Desktop) from a single codebase using the Dart programming language.
+
+🚀 2. Why use Flutter? 
+Flutter is used because it provides high performance, fast development, and consistent UI on every platform without writing separate code.
+
+🎤 Short 10-second Interview Answer:
+Flutter is Google’s UI framework to build multi-platform apps from a single codebase. It’s fast, uses Dart, supports hot reload, and gives a smooth, native-like experience using its own rendering engine.
+
+===========================================================
+===========================================================
+===========================================================
+
+
+⭐ TOPIC-2: Flutter Engine Basics
+✅ 1. What is Flutter Engine?
+Flutter Engine is the core runtime written in C++ that powers Flutter apps.
+It handles rendering, animations, text, layout, and communication with the OS. 
+
+"Core runtime": It is the essential, low-level environment in which all other parts of the Flutter application operate. It manages vital functions like memory, threading, and the application's lifecycle.
+
+"Written in C++": The choice of C++ ensures high performance and efficiency, as C++ allows for direct control over hardware resources and memory management. This is critical for achieving a consistent 60 frames per second (or higher) rendering performance and smooth animations.
+
+"Powers Flutter apps": The engine provides all the necessary primitives and services for the application's user interface (written in Dart) to function across different platforms (iOS, Android, web, desktop). 
+
+
+✅ 2. What does Flutter Engine actually do?
+✔ 1️⃣ Runs Dart code through Dart VM 
+VM = Virtual Machine
+It executes Dart code in debug mode
+Provides hot reload, async handling, memory management
+
+🎤 Interview-Ready Answer (Use This!)
+Flutter Engine is the core runtime written in C++.
+It runs Dart code through the Dart VM and uses the Skia graphics library to draw all UI on the screen.
+Instead of using native widgets, Flutter draws everything by itself, which gives fast performance and consistent UI across Android, iOS, Web, and Desktop.
+
+
+===========================================================
+===========================================================
+===========================================================
+
+
+⭐ 3. Why Hot Reload is fast but Hot Restart is slow?
+🔥 Hot Reload Explanation:
+
+Hot reload only updates changed code in memory
+and rebuilds only the widget tree.
+
+✔ Does NOT restart app
+✔ Does NOT recreate entire widget tree
+✔ Does NOT lose state
+✔ Just reloads changed Dart code
+✔ Very fast (100ms–1s)
+
+Why so fast?
+Because Dart VM supports JIT (Just-In-Time) in debug mode.
+JIT allows:
+Replacing methods at runtime
+Updating classes quickly
+Keeping the existing state
+So only UI refreshes → FAST.
+
+🔥 Hot Restart Explanation:
+Hot Restart clears the widget tree, resets app state, and reloads the entire app from main().
+✔ Clears memory
+✔ Recreates all objects
+✔ Rebuilds app from scratch
+✔ Reloads all initializers
+✔ Runs full app lifecycle again
+
+Why slow?
+Because:
+Dart VM resets your program
+App launches again
+Widgets re-created
+States re-created
+Build methods called again
+ 
+
+⭐ 3. Where does app data get stored when running in Debug Mode?
+⭐ 4. Why does data disappear when I close the app (not in debug mode)?
+👉 JIT + Hot Reload stores data only in RAM (temporary memory).
+👉 When the app closes → RAM is cleared → data disappears.
+👉 Only when you run the full app again (hot restart / re-run) → code executes again.
+👉 JIT stores changes in the Dart VM memory (RAM).
+This memory is:
+Temporary RAM
+Cleared on app restart
+Only used during development
+Not saved in release APK or IPA
+💡 That’s why Hot Reload instantly updates UI — because it doesn’t rebuild the whole app, only updates memory.
+
+
+⭐ JIT vs AOT in terms of DATA storage
+JIT stores hot reload state in VM RAM.
+AOT does NOT store runtime data — it only stores compiled machine code. AOT compiles your dart code into native machine code for mobile platforms , specifically for release build, it is not limited to ARM architecture. 
+Any data must be saved manually using storage systems. 
+
+
+⭐ 2. What is the difference between Framework and Language?
+✅ Best Answer:
+Dart is the programming language. It provides syntax, variables, classes, and functions.
+Flutter is the framework. It provides widgets, tools, rendering system, navigation, and UI components built using Dart.
+Dart = logic
+Flutter = UI engine + widget toolkit
+
+⭐ 3. Why is Hot Reload fast but Hot Restart slow?
+🔥 PERFECT Answer:
+Hot Reload uses Dart’s JIT (Just-In-Time) compiler.
+It only updates changed code in memory and rebuilds the widget tree without restarting the entire app.
+So it’s very fast and preserves state.
+Hot Restart clears the whole app state, destroys widget tree, re-runs main(), and rebuilds everything from scratch, which takes more time.
+
+⭐ 4. What is the Render Tree in Flutter?
+🔥 Best Answer:
+Render Tree is the structure of RenderObjects that Flutter uses to calculate layout and paint UI on the screen.
+Widgets describe “what to show”, but RenderObjects decide “how big, where, and how to paint”.
+
+⭐ 5. If Skia is 2D, then how does Flutter handle 3D?
+🔥 Best Answer:
+Flutter’s main engine Skia is 2D, but Flutter supports 3D transformations using Matrix4, Transform widgets, and the Impeller renderer.
+For true 3D games, Flutter integrates with engines like Flame or Unity.
+
+⭐ 6. How does Dart compile code?
+🔥 Perfect Answer:
+Dart has two compilation modes:
+✔ JIT (Just-In-Time) — Debug Mode
+Supports hot reload
+Fast development
+Slower performance
+Code compiled at runtime
+✔ AOT (Ahead-Of-Time) — Release Mode
+No hot reload
+High performance
+Compiles Dart to native ARM or machine code
+
+⭐ 7. How does Flutter compile an app?
+🔥 Best Answer:
+In debug mode, Flutter uses JIT for fast development.
+In release mode, Dart code is AOT compiled to native code, Flutter engine binaries are packaged, assets are added, and then the APK/IPA is created.
+This gives native performance on both iOS and Android.
+
+
+⭐ 8. What is the role of Flutter Engine?
+🔥 Best Answer:
+Flutter Engine is the core C++ runtime that executes Dart code, manages rendering, communicates with the OS, and uses the Skia library to draw pixels on the screen.
+
+
+⭐ 9. What is Skia?
+🔥 Perfect Answer:
+Skia is Google’s 2D graphics engine used by Flutter to draw UI, animations, shapes, and text on the screen.
+It makes Flutter render the same UI across Android, iOS, Web, and Desktop.
+
+⭐ 10. How does Flutter draw UI? (Short + Sharp)
+🔥 Best Answer:
+Flutter converts widgets → into Element Tree → into Render Tree.
+The engine then uses Skia to draw the UI as pixels on the screen.
+
+
+⭐ 1. What is a RenderObject? (Super Simple + Interview Level)
+👉 Easy Definition:
+A RenderObject is the low-level object in Flutter that actually decides layout (size/position) and paints pixels on the screen.
+✔ Widgets describe what UI should look like
+✔ RenderObjects calculate how to show UI
+Width , Height , Position , Painting , Hit testing (tap detection)
+
+
+⭐ 11. Why don’t Flutter apps use native Android/iOS widgets?
+🔥 Best Answer:
+Because Flutter draws its UI directly using Skia.
+This makes Flutter faster, consistent, and not dependent on platform components.
+
+⭐ 12. What is the role of the build() method?
+🔥 Best Answer:
+The build() method describes the UI using widgets.
+Flutter rebuilds the UI whenever state changes.
+
+⭐ 13. Why does Flutter rebuild so much?
+🔥 Perfect Answer:
+Widgets in Flutter are lightweight and immutable, so rebuilding is cheap and efficient.
+Only what changes is repainted by the engine.
+
+
+
+
+

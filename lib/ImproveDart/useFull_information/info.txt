@@ -1,0 +1,89 @@
+Dart is an object-oriented, client-optimized, open-source language created by Google.
+It is used for writing the entire Flutter application, including UI and logic.
+Flutter uses Dart because it compiles to native machine code, supports hot reload, has a fast event loop, and is optimized for building smooth UI at 60–120 FPS. 
+
+var → type is inferred, value can change
+final → value assigned once (runtime constant)
+const → compile-time constant (must be known at compile time)
+
+Null safety means variables cannot hold null unless explicitly declared as nullable.
+This prevents runtime crashes caused by null values.
+Dart uses ?, !, and ?? to handle nullable values.
+
+Correct explanation:
+Iterable → abstract collection (can be looped)
+List → concrete implementation of Iterable (supports indexing)
+Example:
+Iterable x = [1,2,3];  // Iterable
+print(x.first);        // allowed
+print(x.length);       // allowed
+You can access .first but not [index].
+
+Event Loop decides what code runs next.
+It first runs synchronous code, then microtasks (high priority), then event queue tasks (futures, timers).
+This keeps the UI smooth and non-blocking.
+
+Event Loop decides what code runs next.
+It first runs synchronous code, then microtasks (high priority), then event queue tasks (futures, timers).
+This keeps the UI smooth and non-blocking.
+
+record is a speacial data type in dart that takes a group of multi type vlaues . in records we define optional values and also named vaue like key vlaue pare. its totally type safe. Records return multiple values without creating a class.
+
+
+... spreads elements
+...? spreads only if not null
+
+Synchronous code runs line-by-line and blocks execution.
+Asynchronous code does not block — it allows other tasks to run while waiting (like API calls)
+
+
+
+What is Iterable?
+A collection that can be looped. Examples: List, Set.
+
+What is Iterator?
+The object that visits each item one-by-one using moveNext() and current.
+
+Their relationship:
+Iterable gives an Iterator. Iterator reads the items.
+
+Lazy Iterables (Very Easy Explanation) : 
+Lazy Iterable means operations do not run immediately; they run only when items are accessed. Dart’s map(), where(), skip(), and take() produce lazy iterables.
+
+Iterable vs List : 
+Iterable is a lazily evaluated collection that you can loop through. List is a concrete collection stored in memory and allows index access. map() and where() return Iterable, not List.
+
+map(), where(), forEach() — Simple & Clean Explanation : 
+
+🔵 map() : 
+Example:
+var nums = [1, 2, 3];
+var doubled = nums.map((n) => n * 2);
+print(doubled.toList());
+ 
+Interview Answer:
+map() takes each element and transforms it into a new element. It returns a lazy iterable.
+
+🔵 where() : 
+Example:
+var nums = [1, 2, 3, 4, 5];
+var even = nums.where((n) => n % 2 == 0);
+print(even.toList());
+
+Interview Answer:
+where() filters elements and returns only the items that satisfy the condition.
+
+🔵 forEach() : 
+Example:
+[10, 20, 30].forEach((n) {
+  print("Number: $n");
+});
+
+Interview Answer:
+forEach() applies a function to each element but does not return a new iterable.
+
+
+✅ What is a Record in Dart? 
+“A Record in Dart is a new lightweight data type used to store multiple values together without making a class. It supports named and positional fields and is type-safe.”  
+
+

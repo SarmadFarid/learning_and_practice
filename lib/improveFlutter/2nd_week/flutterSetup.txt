@@ -1,0 +1,22 @@
+🔥 Q1. Why do we need Android Studio if we use VS Code?
+Because Android Studio installs the Android SDK, emulators, and platform tools required to build and run Flutter apps.
+
+🔥 Q2. What does flutter doctor do?
+It checks the Flutter setup and reports missing tools like SDK, plugins, emulators, or Xcode.
+
+🔥 Q3. Difference between Flutter SDK and Dart SDK?
+Dart SDK is the language runtime and compiler.
+Flutter SDK includes Dart , tools, engine binaries and widget libraries . 
+
+🔥 Q4. Why is PATH important?
+Without path flutter commands cannot be executed globally.  
+
+🔥 Q5. VS Code vs Android Studio?
+VS code is faster and lightweight but Android Studio has more powerfull debuging and platforms tools. 
+
+🔥 Q6. What is an emulator?
+A Virtual device use to test apps without physical phone .
+
+
+
+

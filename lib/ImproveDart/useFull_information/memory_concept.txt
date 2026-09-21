@@ -1,0 +1,78 @@
+🧠 1. Does Dart manage memory automatically or manually? 
+✅ Dart manages memory automatically.
+You don’t have to manually allocate or free memory (unlike in C or C++).
+Dart’s Garbage Collector (GC) automatically:
+Allocates memory when you create new objects
+Frees memory when those objects are no longer used
+This is called Automatic Memory Management.
+
+
+⚙️ 2. How Memory Works in Dart
+Dart (like most modern languages) divides memory into two main parts:
+👉 1. Stack Memory
+👉 2. Heap Memory
+Let’s understand both 👇
+
+🧱 3. Stack Memory
+🔹 What it is:
+A small, fast memory area used to store local variables, function calls, and temporary data.
+🔹 How it works:
+Uses LIFO (Last In, First Out) principle
+Memory is automatically freed when a function ends
+Very fast to access
+
+🔹 Example:
+void main() {
+  int x = 10;    // stored on stack
+  int y = 20;    // stored on stack
+  print(add(x, y));
+}
+
+int add(int a, int b) {
+  int sum = a + b; // sum is also on stack
+  return sum;
+}
+👉 When add() is called:
+Its local variables (a, b, sum) are stored on stack
+When the function returns → all are automatically removed
+📦 Stack memory = short-term, temporary storage
+
+
+🧩 4. Heap Memory
+🔹 What it is:
+A large area of memory used to store objects, lists, maps, classes, etc.
+🔹 How it works:
+Objects live in the heap
+Variables in the stack hold references (pointers) to those objects
+When no variable references an object → Garbage Collector frees it
+🔹 Example:
+class Student {
+  String name;
+  Student(this.name);
+}
+
+void main() {
+  Student s1 = Student('Dark Learner');  // object stored in HEAP
+  print(s1.name);
+}
+
+Here:
+s1 (the variable) → stored in stack
+The actual Student object → stored in heap
+If s1 is set to null, the object has no reference → GC deletes it
+📦 Heap memory = long-term, dynamic storage (for objects)
+
+⚡ 6. How Memory is Allocated
+Step	   Action        	Where
+1	   Program starts      Stack created
+2	   Function called	   Function variables stored on stack
+3	   Object created	   Object stored on heap
+4      Function returns	   Stack variables cleared automatically
+5	   Object unused	   GC removes it from heap
+
+🧹 7. Dart’s Garbage Collector and Memory
+Allocates memory when you create new objects
+Tracks references to objects
+Frees heap memory automatically when no one references an object
+Keeps Flutter apps smooth and memory-efficient
+

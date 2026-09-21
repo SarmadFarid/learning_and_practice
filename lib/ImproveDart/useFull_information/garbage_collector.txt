@@ -1,0 +1,22 @@
+🧠 1. What is a Garbage Collector? 
+The Garbage Collector (GC) is like a cleaner or janitor 🧹 for your program’s memory.
+
+When your program creates objects, lists, maps, or widgets, they take up memory (RAM).
+Once you stop using them — the GC automatically removes (cleans) them to free memory.
+
+So, you don’t need to manually delete objects in Dart or Flutter.
+The Garbage Collector does that for you.
+
+⚙️ 2. The Role of Garbage Collector
+🧹 Free unused memory :	 Finds objects that are no longer being used and removes them
+💾 Prevent memory leaks :  Ensures memory isn’t wasted on unused objects
+🚀 Optimize performance :  Keeps your app fast and light by clearing unnecessary data
+🔒 Manage lifecycle :  Automatically handles creation → usage → cleanup of objects
+
+🧱 5. In Dart and Flutter
+Dart’s Garbage Collector is:
+Automatic (you don’t need to trigger it)
+Efficient (especially in Flutter)
+Incremental (runs in small steps to avoid freezing the UI)
+Generational (optimizes by handling short-lived and long-lived objects differently)
+This means Flutter apps stay smooth, even while GC is running — it cleans memory in tiny cycles, not all at once.
